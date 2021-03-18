@@ -1,0 +1,44 @@
+ /*
+    //DEBUG ONLY
+    //TODO: Convert to external optional file that is ran on boot up.
+    //Print UEFIMemory map.
+    for (int i = 0; i < mMapEntries; i++){
+        EFI_MEMORY_DESCRIPTOR* desc = (EFI_MEMORY_DESCRIPTOR*)((uint64_t)bootinfo->mMap + (i * bootinfo->mMapDescSize));
+        newRenderer.CursorPosition = {0, newRenderer.CursorPosition.Y + 16};
+        newRenderer.Print(EFI_MEMORY_TYPE_STRINGS[desc->type]);
+        newRenderer.Print (" = ");
+        newRenderer.Colour = 0xFFFF00FF;
+        newRenderer.Print(to_string(desc->numPages * 4096 / 1024));
+        newRenderer.Print (" kb");
+        newRenderer.Colour = HackerGreen;
+    }*/
+
+/*
+ newRenderer.CursorPosition = {0, newRenderer.CursorPosition.Y + 16};
+    newRenderer.Print("Free RAM: ");
+    newRenderer.Colour = SuperPurple;
+    newRenderer.Print(to_string(newAllocator.GetFreeRAM() / 1024));
+    newRenderer.Print(" KB ");
+    newRenderer.CursorPosition = {0, newRenderer.CursorPosition.Y + 16};
+    newRenderer.Colour = HackerGreen;
+    newRenderer.Print("Used RAM: ");
+    newRenderer.Colour = SuperPurple;
+    newRenderer.Print(to_string(newAllocator.GetUsedRAM() / 1024));
+    newRenderer.Print(" KB ");
+    newRenderer.CursorPosition = {0, newRenderer.CursorPosition.Y + 16};
+    newRenderer.Colour = HackerGreen;
+    newRenderer.Print("Reserved RAM: ");
+    newRenderer.Colour = SuperPurple;
+    newRenderer.Print(to_string(newAllocator.GetReservedRAM() / 1024));
+    newRenderer.Print(" KB ");
+    newRenderer.CursorPosition = {0, newRenderer.CursorPosition.Y + 16};
+    newRenderer.Colour = HackerGreen;*/
+
+/*
+
+
+    for(int t = 0; t < 20;t++){
+        void* address = newAllocator.RequestPage();
+        newRenderer.Print(to_hstring((uint64_t)address));
+        newRenderer.CursorPosition = {0, newRenderer.CursorPosition.Y + 16};
+    }*/

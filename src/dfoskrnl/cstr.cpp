@@ -1,4 +1,4 @@
-#include "../include/cstr.h"
+#include "include/cstr.h"
 
 char uintTo_StringOutput[128];
 const char* to_string(uint64_t value){

@@ -1,4 +1,4 @@
-#include "../include/BasicRenderer.h"
+#include "include/BasicRenderer.h"
 
 BasicRenderer::BasicRenderer(Framebuffer* targetFramebuffer, PSF1_FONT* psf1_Font){
     TargetFramebuffer = targetFramebuffer;
@@ -7,7 +7,7 @@ BasicRenderer::BasicRenderer(Framebuffer* targetFramebuffer, PSF1_FONT* psf1_Fon
     CursorPosition = {0, 0};
 }
 void BasicRenderer::EndLine(){
-    CursorPosition.Y += 16;
+    CursorPosition = {0, CursorPosition.Y + 16};
 }
 void BasicRenderer::Print(const char* str){
     
@@ -44,10 +44,15 @@ void BasicRenderer::PrintError(enum ErrorCodeList error){
     switch(error){
         case KernelPanicUnknownErr:
             Print("Kernel Panic...");
+            EndLine();
             break;
         case EOFErr:
             Print("Kernel some how reached end of file, Shutting Down DarkFlame OS...");
+            EndLine();
+            break;
         case ACPIShutdownFailed:
-            Print("ACPIShutdown Failed, Could not load ACPI driver. FREEZING DARKFLAME OS...");
+            Print("ACPI Shutdown Failed, Could not load ACPI driver. FREEZING DARKFLAME OS...");
+            EndLine();
+            break;
     }
 }
